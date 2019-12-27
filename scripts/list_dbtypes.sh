@@ -2,6 +2,8 @@
 #
 #  Script needs 3 parameters: ActIP ActUser ActPass
 #
+# curl -sSL https://raw.githubusercontent.com/mikechew/MasterSync/master/scripts/list_dbtypes.sh | bash -s 10.65.5.35 admin secret
+#
 
 readonly numparms=3
 
