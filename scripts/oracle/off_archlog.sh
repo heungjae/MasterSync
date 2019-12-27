@@ -5,9 +5,14 @@ if [ "$1" = "" ] ; then
   exit 0
 fi
 
-export ORACLE_SID=$1
-echo "Connecting to $ORACLE_SID db.."
+# test -n "${ORACLE_SID:-}" || (echo "ORACLE_SID should be defined." && exit  1);
 
+export ORAENV_ASK=NO
+export ORACLE_SID=$1
+. oraenv
+export ORAENV_ASK=YES
+
+echo "Connecting to $ORACLE_SID db.."
 
 if ps -fu oracle | grep -v grep | grep ora_smon_$ORACLE_SID >/dev/null
 then
